@@ -1,25 +1,40 @@
 /**
  * 
- * Homework Assignment #3: Statements and Operators
+ * Homework Assignment #4: Fuctions
  * Checckig Socrates is mortal or not
  * 
  */
 
-const mortals = ["Bipin", "Ajay", "Socrates", "Rahul", "Ashish", "Khushbu"];
+let mortals = ["Bipin", "Ajay", "Socrates", "Rahul", "Ashish", "Khushbu"];
 
-const mortalLength = mortals.length // getting length of  the mortals array
-
-// Checking mortals is empty
-
-if(mortalLength > 0) {
-    // checking socrats is mortal or not
-    if ( mortals.indexOf("Socrates") > -1) {
-        console.log("Socrates is mortal");
+/**
+ * 
+ * @param {*} param
+ * @returns {true|false} Boolean 
+ */
+function chekMortal(name) {
+    const mortalLength = mortals.length // getting length of  the mortals array
+    let isMortal;
+    // Checking mortals is empty
+    if (mortalLength > 0) {
+        // checking socrats is mortal or not
+        if (mortals.indexOf(name) > -1) {
+            isMortal = true;
+        } else {
+            isMortal = false;
+        }
     } else {
-        console.log("Socrates is not mortal");
+        isMortal = true;
     }
+    return isMortal;
+}
+let nameOfPerson = "Socrates";
+let isMortal = chekMortal(nameOfPerson); // Calling chekMortal function
+
+if (isMortal) {
+    console.log(`${nameOfPerson} is mortal`);
 } else {
-    console.log("No men is mortal");
+    console.log(`${nameOfPerson} is not mortal`);
 }
 
 
@@ -30,11 +45,14 @@ if(mortalLength > 0) {
  */
 
 const cake = ["vanilla", "chocolate"];
-const cakeLength = cake.length;
-for (let i = 0; i < cakeLength; i++) {
-    if (cake[i] == "chocolate"){
-        console.log("Cake is chocolate");
+
+function cakeFunc(cake, isChocolate) {
+    if (isChocklate) {
+        return cake[1];
     } else {
-        console.log("Cake is vanilla");
+        return cake[0];
     }
 }
+let isChocolate = true;
+let cakeflavour = cakeFunc(cake, isChocolate);
+console.log(cakeflavour);
